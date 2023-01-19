@@ -1,0 +1,43 @@
+Es soll eine Klasse Namens Menü erstellt werden. Diese soll folgende Funktionen enthalten. Zunächst soll der Kunde Möglichkeit haben 
+sich aus Bürgern etwas auszuwählen. Bürger soll das Attribut typ und Preis haben. 
+Dann das Getränk. Jedes Getränk soll in Litern die Menge, Marke als String und preis angegeben haben. 
+Der Preis des Menüs soll dann berechnet werden.
+
+
+
+Tipp: in den Klassen Arrays erstellen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hilfestellung:
+in Bürger 
+String arten["Big Mac", "Cheese", "SuperBurger", "Vegan"];
+
+Methode in Bürger -> auflistungBuerger(){
+    System.out.println()...
+}

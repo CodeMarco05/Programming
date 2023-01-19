@@ -1,0 +1,9 @@
+Erstellen sie eine Klasse Kleiderladen. Situation ist wie folgt. Der Kleiderladen besitz drei Regale mit drei unterschiedlichen
+Kleidertypen. Jedes Regal besitz maximale Größe von 20 Kleidern. Einmal Jeans, Jacken und Schuhe. Um es den Kunden möglich zu 
+machen, auch online zu bestellen, soll jede Kleidersortemit drei unterschiedlichen Merkmalen ausgestattet werden.
+Z.b. Größe, Preis...
+
+Zudem soll jede kleidersorte sich identifizieren können. Da es eine Inflation gibt, soll außerdem eine automatische Preiserhöhungs-
+methode implementiert werden, welche jedes Kleidungsstück um 10 Prozent teurer macht. 
+Die Jeans jedoch soll um 15 Prozent steigen. 
+
