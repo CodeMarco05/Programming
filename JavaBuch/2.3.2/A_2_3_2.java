@@ -1,6 +1,9 @@
+
+
+
 import java.util.Scanner;
 
-public class Main {
+public class A_2_3_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -14,6 +17,7 @@ public class Main {
 
         System.out.println("How many crew members?");
         int crewMembers = scanner.nextInt();
+        scanner.close();
 
         boolean even = crewBottles % crewMembers == 0 ? true: false;
 
