@@ -7,12 +7,12 @@ public class A_2_4_1 {
         final double upper = 0.2;
 
         System.out.print("Money: "); double money = scanner.nextDouble();
+        scanner.close();
 
-        if(money > 1000.0 - 1000.0*lower && money < 1000.0 + 1000.0*upper){
+        if(money >= 1000.0 - 1000.0*lower && money <= 1000.0 + 1000.0*upper){
             System.out.println("Good boy!");
         }else{
             System.out.println("Yout son of a bi***!");
         }
-        scanner.close();
     }
 }
