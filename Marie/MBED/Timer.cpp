@@ -25,6 +25,8 @@ long minuten = 0;
 long stunden = 0;
 bool running = false;
 
+
+
 //ISR Methoden erstellt
 void isr_1() { 
   //Stunden werden eins hochgezaehlt, bei Knopfdruck auf PA_1
