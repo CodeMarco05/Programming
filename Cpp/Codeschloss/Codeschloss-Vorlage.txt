@@ -1,0 +1,55 @@
+#include "mbed.h"
+#include "platform/mbed_thread.h"
+#include "LCD.h"
+
+InterruptIn s(PA_1), takt(PA_6);
+enum Zustand{Z0=0, Z1=1, Z2=2, Z3=3};
+PortOut anzeige(PortC,0x7F);
+DigitalOut freigabe(PC_7);
+DigitalOut seg7On(PC_12);
+lcd mylcd;
+
+int aktZustand=Z0, nr=0;
+int seg7[10]={0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 
+                0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01101111};
+
+void isr_hoch()
+{
+
+
+}
+
+void isr_weiter()
+{
+
+
+
+}
+
+void isr_ruecksetz()
+{
+
+
+
+}
+
+void init(void)
+{
+ 
+
+
+
+}
+
+int main()
+{
+    init();
+
+    while (true) {
+        if (aktZustand==Z3) freigabe=1; 
+        else freigabe=0;
+        mylcd.cursorpos(0);
+        mylcd.printf("Zustand= %d",aktZustand);
+        thread_sleep_for(25);
+    }
+}
