@@ -28,21 +28,15 @@ public class Main {
 		createImage(binaryString);
 		System.out.println("Finished creating Image");
 
+		//Take picture and interpret it 
 		ArrayList<String> binaryInterpret = interpretDotmap(1, picturePath);
 
 		String interpretBinary = String.join("", binaryInterpret);
 
-		// writeBinaryToText(interpretBinary, txtOutPath);
+		//Write the binary to file
+		writeBinaryToText(interpretBinary, txtOutPath);
 
-		// writeTextToFile(binaryString, txtOutPath);
-
-		// int[] numbs = findMultipliers(binary.length());
-
-		// createImage(binary);
-
-		// String text = convertBinaryToText(binary);
-
-		// writeTextToFile(text, txtOutPath);
+		
 
 		System.out.println("Finished");
 
@@ -241,17 +235,6 @@ public class Main {
 		}
 	}
 
-	/*
-	 * public static String convertBinaryToText(String binaryCode) { StringBuilder
-	 * result = new StringBuilder();
-	 * 
-	 * StringBuilder chunk = new StringBuilder(); for (int i = 0; i <
-	 * binaryCode.length(); i++) { char c = binaryCode.charAt(i); chunk.append(c);
-	 * if (chunk.length() == 8) { if (!chunk.toString().equals("00000000")) { int
-	 * charCode = Integer.parseInt(chunk.toString(), 2); result.append((char)
-	 * charCode); } chunk.setLength(0); } }
-	 * 
-	 * return result.toString(); }
-	 */
+	
 
 }
