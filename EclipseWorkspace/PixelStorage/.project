@@ -3,6 +3,7 @@
 	<name>PixelStorage</name>
 	<comment></comment>
 	<projects>
+		<project>TextPixelStorage</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

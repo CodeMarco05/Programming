@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.io.File;
 import java.io.*;
@@ -14,14 +15,15 @@ import javax.imageio.ImageIO;
 
 public class Main {
 
-	static String picturePath = System.getProperty("user.home") + "/Desktop/dotted_image.png";
-	static String txtOutPath = System.getProperty("user.home") + "/Desktop/outputTXT.txt";
-	static String txtInputPath = System.getProperty("user.home") + "/Desktop/inputTXT.txt";
+	static String picturePath = System.getProperty("user.home") + File.separator + "Desktop"+ File.separator +"dotted_image.png";
+	static String txtOutPath = System.getProperty("user.home") + File.separator + "Desktop" + File.separator +"outputTXT.txt";
+	static String txtInputPath = System.getProperty("user.home") + File.separator + "Desktop"+ File.separator + "inputTXT.txt";
 
 	public static void main(String[] args) {
 
 		ArrayList<String> binary = readTXTFileToBin(txtInputPath);
 		System.out.println("Finished Reading Input!");
+
 
 		String binaryString = String.join("", binary);
 
@@ -57,6 +59,7 @@ public class Main {
 				textBuilder.append(c);
 
 			} else {
+
 				String bits = binary.substring(0, 8);
 				binary = binary.substring(8, binary.length());
 				char c = decodeSixteenBit(bits);
@@ -83,7 +86,6 @@ public class Main {
 
 		int[] multipliers = findMultipliers(code.length);
 
-		System.out.println(code.length);
 
 		int width = multipliers[0];
 		int height = multipliers[1];
@@ -123,27 +125,24 @@ public class Main {
 
 	public static int[] findMultipliers(int number) {
 
-		//TODO: the method wont work anymore
 		int[] multipliers = new int[2];
 
-		// Check if the number is even
-		if (number % 2 == 0) {
-			// Divide by 2 to find the highest factor
-			int highestFactor = number / 2;
 
-			// Divide by 2 until we can no longer divide evenly
-			int secondFactor = highestFactor;
-			while (secondFactor % 2 == 0) {
-				secondFactor /= 2;
+		ArrayList<Integer> possibleNums = new ArrayList<>();
+		ArrayList<Integer> differenz = new ArrayList<>();
+
+		for(int i = 1; i <= Math.sqrt(number); i++){
+			if(number % i == 0){
+				possibleNums.add(i);
+				differenz.add((number/i) - i);
 			}
-
-			multipliers[0] = highestFactor;
-			multipliers[1] = secondFactor;
-		} else {
-			// Handle case when the number is odd
-			multipliers[0] = number;
-			multipliers[1] = 1;
 		}
+
+		int minDifIndex = differenz.indexOf(Collections.min(differenz));
+		
+
+		multipliers[0] = possibleNums.get(minDifIndex);
+		multipliers[1] = number / multipliers[0];
 
 		return multipliers;
 
@@ -220,11 +219,7 @@ public class Main {
 		return result;
 	}
 
-	public static void writeTXTFile(String text, String filePath) throws IOException {
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-			writer.write(text);
-		}
-	}
+	
 
 	public static void writeDecodedStringToFile(String text, String filepath) {
 		try (BufferedWriter writer = new BufferedWriter(
